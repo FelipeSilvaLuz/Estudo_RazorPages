@@ -1,3 +1,4 @@
+using Estudo_RazorPages.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +13,11 @@ namespace Estudo_RazorPages
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            services.AddEntityFrameworkSqlServer();
+            services.AddDbContext<DataBase>();
+
+            services.AddRouting(options => options.LowercaseUrls = true);
+            
             services.AddMvc()
                 .AddRazorPagesOptions(options =>
                 {
